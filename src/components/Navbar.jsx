@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="my-10 flex items-center justify-between container mx-auto">
+    <nav className="my-10 gap-10 md:gap-0 flex flex-col md:flex-row items-center justify-between container mx-auto">
       <div>
         <Link href={"/"}>
           <h2 className="text-4xl font-bold">
@@ -14,7 +14,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div>
-        <ul className="flex font-semibold gap-4">
+        <ul className="flex items-center font-semibold gap-4">
           <li>
             <NavLink href={"/"}>Home</NavLink>
           </li>
@@ -26,7 +26,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="flex gap-4">
+      <div className="flex items-center gap-4">
         <Link href={"/login"}>
           <Button variant="outline">Login</Button>
         </Link>
