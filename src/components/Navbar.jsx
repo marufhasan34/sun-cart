@@ -9,7 +9,7 @@ const Navbar = () => {
       <div>
         <Link href={"/"}>
           <h2 className="text-4xl font-bold">
-            sun<span className="text-green-500">Cart</span>
+            sun<span className="text-yellow-400">Cart</span>
           </h2>
         </Link>
       </div>
