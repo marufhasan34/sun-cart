@@ -10,9 +10,11 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
 
+    const router = useRouter()
 
     const onSubmit = async(e) => {
         e.preventDefault()
@@ -28,7 +30,9 @@ const RegisterPage = () => {
             email,
             password
         })
-        console.log(data,error)
+        if(!error){
+            router.push('/')
+        }
     }
 
   return (
@@ -66,7 +70,7 @@ const RegisterPage = () => {
           }}
         >
           <Label>Email</Label>
-          <Input placeholder="john@example.com" />
+          <Input placeholder="Enter Your Email" />
           <FieldError />
         </TextField>
         <TextField
