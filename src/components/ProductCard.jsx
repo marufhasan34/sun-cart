@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
@@ -17,7 +18,7 @@ const ProductCard = ({product}) => {
                 <p>Price : </p>
                 <p className='flex items-center gap-2'> <span>$ {product.price}</span></p>
             </div>
-            <button className='w-full cursor-pointer hover:bg-cyan-950 hover:text-white bg-yellow-400 rounded-2xl py-1 transition my-2'>View Details</button>
+            <Link href={`/products/${product.id}`}><button className='w-full cursor-pointer hover:bg-cyan-950 hover:text-white bg-yellow-400 rounded-2xl py-1 transition my-2'>View Details</button></Link>
         </div>
     );
 };
