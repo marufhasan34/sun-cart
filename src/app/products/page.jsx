@@ -1,9 +1,9 @@
-import React from 'react';
 
-const ProductsPage = () => {
+const ProductsPage =async () => {
+    const res = await fetch('https://sun-cart-lac.vercel.app/data.json')
     return (
         <div>
-            Products Page
+           
         </div>
     );
 };

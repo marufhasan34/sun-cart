@@ -7,7 +7,6 @@ const Footer = () => {
     <footer className="bg-[#0f172a] text-gray-300 mt-10">
       <div className="max-w-7xl mx-auto px-5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        {/* Logo & About */}
         <div>
           <h2 className="text-2xl font-bold text-white mb-3">
             🌞 SunCart
@@ -18,7 +17,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">
             Contact Us
@@ -28,7 +26,6 @@ const Footer = () => {
           <p>Location: Chattogram, Bangladesh</p>
         </div>
 
-        {/* Links */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">
             Quick Links
@@ -53,7 +50,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Social Links */}
       <div className="border-t border-gray-700 py-5">
         <div className="flex justify-center gap-6 text-lg">
           <a href="#" className="text-blue-500"><FaFacebook /></a>
@@ -62,7 +58,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom */}
       <div className="text-center text-sm text-gray-400 pb-5">
         © {new Date().getFullYear()} SunCart. All rights reserved.
       </div>
