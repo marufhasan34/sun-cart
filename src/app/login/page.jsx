@@ -12,9 +12,13 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
+
+   const router = useRouter();
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -23,14 +27,18 @@ const LoginPage = () => {
     const { data, error } = await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/",
     });
     if (error) {
       toast.error("Login Failed. Please try again");
+      return;
     }
 
-    if (data) {
+     if (data) {
       toast.success("You have successfully Login this website");
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1500); 
     }
   };
 

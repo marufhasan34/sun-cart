@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa';
 
 const ProductCard = ({product}) => {
     return (
-        <div className='card card-body shadow-2xl'>
+        <div className='card card-body shadow-2xl animate__animated animate__fadeInUp hover:animate__pulse transition'>
             <div className='relative w-full aspect-square'>
                 <Image className='rounded-xl object-cover' src={product.image} alt={product.name} fill />
             </div>

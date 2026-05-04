@@ -34,6 +34,7 @@ const RegisterPage = () => {
 
     if (error) {
       toast.error("Register Failed. Please try again");
+      return;
     }
 
     if (data) {
