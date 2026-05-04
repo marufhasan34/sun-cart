@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const onSubmit = async (e) => {
@@ -25,6 +26,13 @@ const LoginPage = () => {
       callbackURL: "/",
     });
   };
+  if (error) {
+    toast.error("Login Failed. Please try again");
+  }
+
+  if (data) {
+    toast.success("You have successfully Login this website");
+  }
 
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
@@ -84,11 +92,13 @@ const LoginPage = () => {
           <Button type="reset" variant="secondary">
             Reset
           </Button>
-          
         </div>
-        <p className="text-gray-400 flex gap-3 items-center">Do not have an account please <Link href={'/register'}><Button variant="outline">
-            Register
-          </Button></Link></p>
+        <p className="text-gray-400 flex gap-3 items-center">
+          Do not have an account please{" "}
+          <Link href={"/register"}>
+            <Button variant="outline">Register</Button>
+          </Link>
+        </p>
       </Form>
       <p className="text-center my-3 text-gray-500 text-lg">or</p>
       <Button

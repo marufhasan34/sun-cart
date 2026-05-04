@@ -13,55 +13,54 @@ import {
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+  const router = useRouter();
 
-    const router = useRouter()
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const image = e.target.image.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-    const onSubmit = async(e) => {
-        e.preventDefault()
-        const name = e.target.name.value;
-        const image = e.target.image.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        
+    const { data, error } = await authClient.signUp.email({
+      name,
+      image,
+      email,
+      password,
+    });
 
-        const {data,error} = await authClient.signUp.email({
-            name,
-            image,
-            email,
-            password
-        })
-        if(!error){
-            router.push('/')
-        }
+    if (error) {
+      toast.error("Register Failed. Please try again");
     }
 
-    const handleGoogleRegister = async () => {
-        await authClient.signIn.social({
-          provider: "google",
-        });
-      };
+    if (data) {
+      toast.success("You have successfully registered this website");
+    }
+
+    if (!error) {
+      router.push("/");
+    }
+  };
+
+  const handleGoogleRegister = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
 
   return (
     <div className="card card-body shadow-2xl mx-auto  w-1/2 py-10 mt-5">
       <h2 className="font-bold text-2xl text-center py-4">Register</h2>
       <Form onSubmit={onSubmit} className="flex mx-auto flex-col gap-4">
-        <TextField
-          isRequired
-          name="name"
-          type="text"
-        >
+        <TextField isRequired name="name" type="text">
           <Label>Name</Label>
           <Input placeholder="Enter Your Name" />
           <FieldError />
         </TextField>
-        <TextField
-          isRequired
-          name="image"
-          type="text"
-          
-        >
+        <TextField isRequired name="image" type="text">
           <Label>Image Url</Label>
           <Input placeholder="Enter Your Image Url" />
           <FieldError />
@@ -115,19 +114,22 @@ const RegisterPage = () => {
             Reset
           </Button>
         </div>
-         <p className="text-gray-400 flex gap-3 items-center">already have an account please <Link href={'/login'}><Button variant="outline">
-                    Login
-                  </Button></Link></p>
+        <p className="text-gray-400 flex gap-3 items-center">
+          already have an account please{" "}
+          <Link href={"/login"}>
+            <Button variant="outline">Login</Button>
+          </Link>
+        </p>
       </Form>
-       <p className="text-center my-3 text-gray-500 text-lg">or</p>
-            <Button
-              onClick={handleGoogleRegister}
-              className="w-full "
-              variant="tertiary"
-            >
-              <Icon icon="devicon:google" />
-              Sign in with Google
-            </Button>
+      <p className="text-center my-3 text-gray-500 text-lg">or</p>
+      <Button
+        onClick={handleGoogleRegister}
+        className="w-full "
+        variant="tertiary"
+      >
+        <Icon icon="devicon:google" />
+        Sign in with Google
+      </Button>
     </div>
   );
 };
