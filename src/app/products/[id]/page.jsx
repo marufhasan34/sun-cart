@@ -10,11 +10,11 @@ const ProductDetailsPage = async ({ params }) => {
   const product = products.find((p) => p.id == id);
 
   return (
-    <div className="card   card-body shadow-2xl">
-      <div className="flex gap-15">
+    <div className="card card-body shadow-2xl">
+      <div className="flex flex-col lg:flex-row gap-15">
         <div>
           <Image
-            className="rounded-2xl"
+            className="rounded-2xl mx-auto lg:mx-0"
             src={product.image}
             alt={product.name}
             width={300}

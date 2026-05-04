@@ -38,10 +38,10 @@ const RegisterPage = () => {
 
     if (data) {
       toast.success("You have successfully registered this website");
-    }
 
-    if (!error) {
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 1500); 
     }
   };
 
@@ -52,7 +52,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="card card-body shadow-2xl mx-auto  w-1/2 py-10 mt-5">
+    <div className="card card-body shadow-2xl mx-auto  lg:w-1/2 py-10 mt-5">
       <h2 className="font-bold text-2xl text-center py-4">Register</h2>
       <Form onSubmit={onSubmit} className="flex mx-auto flex-col gap-4">
         <TextField isRequired name="name" type="text">

@@ -5,7 +5,7 @@ const SummerCareTips = () => {
   return (
     <div>
       <h2 className="font-bold text-2xl text-center">Summer Care Tips</h2>
-      <div className="flex items-center mt-14 gap-9">
+      <div className="flex flex-col lg:flex-row items-center mt-14 gap-9">
         
           <Image
             src="https://glamveda.com/cdn/shop/articles/Protein_Bleach_Blog.jpg?v=1653369212&width=2428"
@@ -21,7 +21,7 @@ const SummerCareTips = () => {
             <p className="text-gray-400 mt-2">Achieving and maintaining flawless summer skin can be a challenge. To start, it’s important to use products that are specifically designed for summer weather. Heavy creams and ointments can clog pores and lead to breakouts, so opt for lighter-weight products that won’t weigh your skin down. Look for products that contain ingredients like hyaluronic acid, which helps to hydrate and plump the skin, and niacinamide, which reduces inflammation and redness.</p>
         </div>
       </div>
-      <div className="flex items-center flex-row-reverse mt-20 gap-9">
+      <div className="flex flex-col items-center lg:flex-row-reverse mt-20 gap-9">
         
           <Image
             src="https://extension.usu.edu/images/news_images/hydration-image.jpg"

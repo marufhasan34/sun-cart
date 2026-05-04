@@ -25,14 +25,14 @@ const LoginPage = () => {
       password,
       callbackURL: "/",
     });
-  };
-  if (error) {
-    toast.error("Login Failed. Please try again");
-  }
+    if (error) {
+      toast.error("Login Failed. Please try again");
+    }
 
-  if (data) {
-    toast.success("You have successfully Login this website");
-  }
+    if (data) {
+      toast.success("You have successfully Login this website");
+    }
+  };
 
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
@@ -41,7 +41,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="card card-body shadow-2xl mx-auto  w-1/2 py-10 mt-5">
+    <div className="card card-body shadow-2xl mx-auto  lg:w-1/2 py-10 mt-5">
       <h2 className="font-bold text-2xl text-center py-4">Login</h2>
       <Form onSubmit={onSubmit} className="flex mx-auto flex-col gap-4">
         <TextField
