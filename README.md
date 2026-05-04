@@ -6,7 +6,7 @@ SunCart is a modern e-commerce web application built with Next.js. It allows use
 ---
 
 ## 🌐 Live Demo
-https://your-live-url.vercel.app
+https://sun-cart-lac.vercel.app/
 
 ---
 
