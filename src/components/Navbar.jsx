@@ -55,7 +55,7 @@ const Navbar = () => {
               <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
             </Avatar>
 
-            <Button onClick={handleSignOut} size="sm" variant="danger">Sign out</Button>
+            <Button onClick={handleSignOut} size="sm" variant="danger">Log out</Button>
           </div>
         )}
       </div>

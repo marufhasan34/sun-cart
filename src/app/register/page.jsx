@@ -10,6 +10,8 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { Icon } from "@iconify/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
@@ -34,6 +36,12 @@ const RegisterPage = () => {
             router.push('/')
         }
     }
+
+    const handleGoogleRegister = async () => {
+        await authClient.signIn.social({
+          provider: "google",
+        });
+      };
 
   return (
     <div className="card card-body shadow-2xl mx-auto  w-1/2 py-10 mt-5">
@@ -101,13 +109,25 @@ const RegisterPage = () => {
         <div className="flex gap-2">
           <Button type="submit">
             <Check />
-            Submit
+            Register
           </Button>
           <Button type="reset" variant="secondary">
             Reset
           </Button>
         </div>
+         <p className="text-gray-400 flex gap-3 items-center">already have an account please <Link href={'/login'}><Button variant="outline">
+                    Login
+                  </Button></Link></p>
       </Form>
+       <p className="text-center my-3 text-gray-500 text-lg">or</p>
+            <Button
+              onClick={handleGoogleRegister}
+              className="w-full "
+              variant="tertiary"
+            >
+              <Icon icon="devicon:google" />
+              Sign in with Google
+            </Button>
     </div>
   );
 };
